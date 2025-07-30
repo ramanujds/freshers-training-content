@@ -28,12 +28,7 @@ public class NotesRepositoryImpl implements NotesRepository {
     }
 
     public Note getNoteById(int id) {
-        for(Note note : notes) {
-            if (note.getId() == id) {
-                return note;
-            }
-        }
-        return null;
+       return notes.stream().filter(note -> note.getId() == id).findFirst().get();
     }
 
     public Note getNoteByTitle(String title) {

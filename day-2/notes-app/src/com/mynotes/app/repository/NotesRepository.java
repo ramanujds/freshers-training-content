@@ -10,7 +10,6 @@ public interface NotesRepository {
      void addNote(Note note);
 
 
-
      void deleteNote(int id);
 
 
