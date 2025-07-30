@@ -10,6 +10,6 @@ public interface NotesService {
     List<Note> getAllNotes();
     Note getNoteByTitle(String title);
     Note createNote(Note note);
-    Note deleteNote(int id);
+    void deleteNote(int id);
 
 }
