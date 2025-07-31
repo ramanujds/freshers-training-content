@@ -3,6 +3,7 @@ package com.mynotes.api;
 import com.mynotes.model.Note;
 import com.mynotes.repository.NotesRepository;
 import com.mynotes.repository.NotesRepositoryImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,11 +12,8 @@ import java.util.List;
 @RequestMapping("/api/v1/notes")
 public class NotesController {
 
+    @Autowired
     private NotesRepository repo;
-
-    public NotesController(NotesRepository repo) {
-        this.repo = repo;
-    }
 
 
     @PostMapping
@@ -26,6 +24,11 @@ public class NotesController {
     @GetMapping
     public List<Note> getAllNotes(){
         return repo.getAllNotes();
+    }
+
+    @GetMapping("/{id}")
+    public Note findNote(@PathVariable("id") int id){
+        return repo.getNoteById(id);
     }
 
 
