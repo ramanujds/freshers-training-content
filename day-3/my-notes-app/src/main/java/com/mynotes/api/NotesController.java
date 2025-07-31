@@ -5,6 +5,8 @@ import com.mynotes.repository.NotesRepository;
 import com.mynotes.repository.NotesRepositoryImpl;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/notes")
 public class NotesController {
@@ -19,6 +21,11 @@ public class NotesController {
     @PostMapping
     public Note createNote(@RequestBody Note note){
         return repo.saveNote(note);
+    }
+
+    @GetMapping
+    public List<Note> getAllNotes(){
+        return repo.getAllNotes();
     }
 
 
