@@ -19,3 +19,19 @@ docker pull mysql
 docker run -p 3306:3306 -d --name=mysql -e MYSQL_ROOT_PASSWORD=password mysql
 
 ```
+
+### Access Mysql Client
+
+```bash
+
+docker exec -it mysql bash
+
+```
+
+### Enter MySQL Command
+
+```bash
+
+mysql -u root -p
+
+```
