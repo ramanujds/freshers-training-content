@@ -14,4 +14,6 @@ public interface NotesRepository {
 
     void deleteNode(int id);
 
+    List<Note> findNotesByTitle(String title);
+
 }

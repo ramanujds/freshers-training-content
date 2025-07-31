@@ -1,5 +1,6 @@
 package com.mynotes.repository;
 
+import com.mynotes.exception.DuplicateRecordException;
 import com.mynotes.exception.RecordNotFoundException;
 import com.mynotes.model.Note;
 import jakarta.annotation.PostConstruct;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Component
 public class NotesRepositoryImpl implements NotesRepository{
@@ -24,6 +26,10 @@ public class NotesRepositoryImpl implements NotesRepository{
     }
 
     public Note saveNote(Note note) {
+        Note exists = notes.stream().filter(n->n.getId()==note.getId()).findFirst().orElse(null);
+        if(exists != null){
+            throw new DuplicateRecordException("Node with id "+note.getId()+" Already Present");
+        }
         notes.add(note);
         return note;
     }
@@ -42,4 +48,10 @@ public class NotesRepositoryImpl implements NotesRepository{
         notes.removeIf(n->n.getId()==id);
     }
 
+    public List<Note> findNotesByTitle(String title) {
+
+        return notes.stream().filter(n->n.getTitle().toLowerCase().contains(title.toLowerCase()))
+                .toList();
+
+    }
 }

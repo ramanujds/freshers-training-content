@@ -42,5 +42,9 @@ public class NotesController {
          repo.getNoteById(id);
     }
 
+    @GetMapping("/search")
+    public List<Note> findNotesByTitle(@RequestParam("title") String title){
+        return repo.findNotesByTitle(title);
+    }
 
 }

@@ -1,6 +1,8 @@
 package com.mynotes.exception;
 
 import com.mynotes.dto.ErrorResponseDto;
+
+import com.mynotes.model.Note;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
@@ -26,5 +28,20 @@ public class NotesApiExceptionHandler {
         );
         return errorBody;
     }
+
+    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+    @ExceptionHandler({DuplicateRecordException.class})
+    public ErrorResponseDto handleDuplicateRecordError(Exception ex, HttpServletRequest request){
+        ErrorResponseDto errorBody = new ErrorResponseDto(
+                ex.getMessage(),
+                400,
+                HttpStatus.BAD_REQUEST.getReasonPhrase(),
+                LocalDateTime.now(),
+                request.getRequestURI()
+        );
+        return errorBody;
+    }
+
+
 
 }
