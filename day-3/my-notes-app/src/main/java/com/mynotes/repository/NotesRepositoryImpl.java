@@ -1,5 +1,6 @@
 package com.mynotes.repository;
 
+import com.mynotes.exception.RecordNotFoundException;
 import com.mynotes.model.Note;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
@@ -28,7 +29,9 @@ public class NotesRepositoryImpl implements NotesRepository{
     }
 
     public Note getNoteById(int id) {
-        return notes.stream().filter(n->n.getId()==id).findFirst().orElse(null);
+        return notes.stream().filter(n->n.getId()==id)
+                .findFirst()
+                .orElseThrow(()->new RecordNotFoundException("Note with id "+id+" Not Found"));
     }
 
     public List<Note> getAllNotes() {

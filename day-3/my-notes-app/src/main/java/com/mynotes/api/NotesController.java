@@ -4,6 +4,7 @@ import com.mynotes.model.Note;
 import com.mynotes.repository.NotesRepository;
 import com.mynotes.repository.NotesRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,11 +13,14 @@ import java.util.List;
 @RequestMapping("/api/v1/notes")
 public class NotesController {
 
+
+
     @Autowired
     private NotesRepository repo;
 
 
     @PostMapping
+    @ResponseStatus(code = HttpStatus.CREATED)
     public Note createNote(@RequestBody Note note){
         return repo.saveNote(note);
     }
@@ -32,6 +36,11 @@ public class NotesController {
     }
 
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public void deleteNote(@PathVariable("id") int id){
+         repo.getNoteById(id);
+    }
 
 
 }
