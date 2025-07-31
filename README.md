@@ -16,8 +16,6 @@ docker pull mysql
 ```bash
 
 
-docker run -p 3306:3306 -d --name=mysql \ 
--e MYSQL_ROOT_PASSWORD=password \
-mysql
+docker run -p 3306:3306 -d --name=mysql -e MYSQL_ROOT_PASSWORD=password mysql
 
 ```
