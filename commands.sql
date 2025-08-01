@@ -37,6 +37,20 @@ rollback to p1;
 
 commit;
 
+insert into notes(title,content,creation_time,username) values('React Notes','React is a JS Library',sysdate(),'harsh');
+insert into notes(title,content,creation_time,username) values('Angular Notes','Angular is a JS Framework',sysdate(),'harsh');
+insert into notes(title,content,creation_time,username) values('Vue Notes','Vue is a JS Framework',sysdate(),'rahul');
+insert into notes(title,content,creation_time,username) values('Svelte Notes','Svelte is a JS Framework',sysdate(),'karan');
+insert into notes(title,content,creation_time,username) values('Ember Notes','Ember is a JS Framework',sysdate(),'rahul');
+insert into notes(title,content,creation_time,username) values('Backbone Notes','Backbone is a JS Framework',sysdate(),'mohit');
+insert into notes(title,content,creation_time,username) values('Lit Notes','Lit is a JS Library',sysdate(),'rahul');
+insert into notes(title,content,creation_time,username) values('Preact Notes','Preact is a JS Library',sysdate(),'javed');
+insert into notes(title,content,creation_time,username) values('Alpine Notes','Alpine is a JS Framework',sysdate(),'javed');
+insert into notes(title,content,creation_time,username) values('Mithril Notes','Mithril is a JS Framework',sysdate(),'rahul');
+
+commit;
+
+set autocommit=1;
 
 
 
