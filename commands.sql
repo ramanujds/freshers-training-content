@@ -40,16 +40,16 @@ commit;
 
 
 
-insert into notes(title,content,creation_time,username) values('React Notes','React is a JS Library','2023-11-15 10:23:45','harsh');
-insert into notes(title,content,creation_time,username) values('Angular Notes','Angular is a JS Framework','2024-01-08 14:12:30','harsh');
-insert into notes(title,content,creation_time,username) values('Vue Notes','Vue is a JS Framework','2023-09-27 09:45:10','rahul');
-insert into notes(title,content,creation_time,username) values('Svelte Notes','Svelte is a JS Framework','2024-03-19 16:05:22','karan');
-insert into notes(title,content,creation_time,username) values('Ember Notes','Ember is a JS Framework','2023-12-02 18:30:00','rahul');
-insert into notes(title,content,creation_time,username) values('Backbone Notes','Backbone is a JS Framework','2024-02-14 11:11:11','mohit');
-insert into notes(title,content,creation_time,username) values('Lit Notes','Lit is a JS Library','2023-10-21 07:55:33','rahul');
-insert into notes(title,content,creation_time,username) values('Preact Notes','Preact is a JS Library','2024-04-05 20:20:20','javed');
-insert into notes(title,content,creation_time,username) values('Alpine Notes','Alpine is a JS Framework','2023-08-30 13:13:13','javed');
-insert into notes(title,content,creation_time,username) values('Mithril Notes','Mithril is a JS Framework','2024-05-01 22:22:22','rahul');
+INSERT INTO mydb.notes (id, title, content, creation_time, user_id) VALUES (1, 'React Notes', 'React is a JS Library', '2023-11-15 10:23:45', 4);
+INSERT INTO mydb.notes (id, title, content, creation_time, user_id) VALUES (2, 'Angular Notes', 'Angular is a JS Framework', '2024-01-08 14:12:30', 1);
+INSERT INTO mydb.notes (id, title, content, creation_time, user_id) VALUES (3, 'Vue Notes', 'Vue is a JS Framework', '2023-09-27 09:45:10', 3);
+INSERT INTO mydb.notes (id, title, content, creation_time, user_id) VALUES (4, 'Svelte Notes', 'Svelte is a JS Framework', '2024-03-19 16:05:22', 1);
+INSERT INTO mydb.notes (id, title, content, creation_time, user_id) VALUES (5, 'Ember Notes', 'Ember is a JS Framework', '2023-12-02 18:30:00', 4);
+INSERT INTO mydb.notes (id, title, content, creation_time, user_id) VALUES (6, 'Backbone Notes', 'Backbone is a JS Framework', '2024-02-14 11:11:11', 1);
+INSERT INTO mydb.notes (id, title, content, creation_time, user_id) VALUES (7, 'Lit Notes', 'Lit is a JS Library', '2023-10-21 07:55:33', 3);
+INSERT INTO mydb.notes (id, title, content, creation_time, user_id) VALUES (8, 'Preact Notes', 'Preact is a JS Library', '2024-04-05 20:20:20', 1);
+INSERT INTO mydb.notes (id, title, content, creation_time, user_id) VALUES (9, 'Alpine Notes', 'Alpine is a JS Framework', '2023-08-30 13:13:13', 2);
+INSERT INTO mydb.notes (id, title, content, creation_time, user_id) VALUES (10, 'Mithril Notes', 'Mithril is a JS Framework', '2024-05-01 22:22:22', 1);
 
 -- create a table user with id, username, location
 
@@ -129,7 +129,7 @@ select * from notes where month(creation_time) in (11,12);
 
 
 
-
+update notes set user_id=1 where month(creation_time) between 1 and 5;
 
 
 
