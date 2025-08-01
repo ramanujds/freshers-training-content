@@ -147,6 +147,7 @@ select u.*, n.id from users u left join notes n on n.user_id=u.id where n.id is 
 select * from notes where creation_time=(select min(creation_time) from notes);
 
 
+INSERT INTO mydb.notes (id, title, content, creation_time, user_id) VALUES (11, 'Mithril Notes', 'Mithril is a JS Framework', '2024-05-01 22:22:22', 10)
 
 
 

@@ -4,6 +4,11 @@ https://medium.com/@ramanujds9/fixing-a-bug-on-production-with-cherry-picking-0e
 
 https://medium.com/@ramanujds9/stop-installing-mongodb-locally-use-docker-instead-ab35f2375b18
 
+## MongoDB Practice
+
+https://medium.com/@ramanujds9/mongodb-for-beginners-learn-by-doing-2f7f6968eb01
+
+
 ## Docker command to run MySql
 
 ### Pull Mysql Image
