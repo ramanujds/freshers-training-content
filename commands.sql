@@ -131,10 +131,20 @@ select * from notes where month(creation_time) in (11,12);
 
 update notes set user_id=1 where month(creation_time) between 1 and 5;
 
+-- find all the notes belong to an Indian
 
+select n.id,n.title,n.content, u.username, u.location 
+			from notes n join users u on n.user_id=u.id where location='India';
 
+-- total notes for each user
 
+select u.username,(select count(n.id) from notes n where n.user_id=u.id) as 'total notes' from users u;
 
+-- user with no notes
+
+select u.*, n.id from users u left join notes n on n.user_id=u.id where n.id is NULL;
+
+select * from notes where creation_time=(select min(creation_time) from notes);
 
 
 
