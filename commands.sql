@@ -55,11 +55,11 @@ insert into notes(title,content,creation_time,username) values('Mithril Notes','
 
 create table users(id int primary key auto_increment, username varchar(50) not null, location varchar(100));
 
-insert into user(username, location) values('rahul', 'India');
-insert into user(username, location) values('harsh', 'USA');
-insert into user(username, location) values('karan', 'UK');
-insert into user(username, location) values('mohit', 'Canada');
-insert into user(username, location) values('javed', 'Australia');
+insert into users(username, location) values('rahul', 'India');
+insert into users(username, location) values('harsh', 'USA');
+insert into users(username, location) values('karan', 'UK');
+insert into users(username, location) values('mohit', 'Canada');
+insert into users(username, location) values('javed', 'Australia');
 
 -- drop the coulmn username from notes
 alter table notes drop column username;
@@ -67,7 +67,7 @@ alter table notes drop column username;
 -- add coulmn user_id to notes with foreign key reference to user table
 
 alter table notes add user_id int;
-alter table notes add constraint fk_user foreign key (user_id) references user(id);
+alter table notes add constraint fk_user foreign key (user_id) references users(id);
 
 
 
