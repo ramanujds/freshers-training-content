@@ -53,7 +53,7 @@ insert into notes(title,content,creation_time,username) values('Mithril Notes','
 
 -- create a table user with id, username, location
 
-create table user(id int primary key auto_increment, username varchar(50) not null, location varchar(100));
+create table users(id int primary key auto_increment, username varchar(50) not null, location varchar(100));
 
 insert into user(username, location) values('rahul', 'India');
 insert into user(username, location) values('harsh', 'USA');
