@@ -52,6 +52,17 @@ commit;
 
 set autocommit=1;
 
+drop table notes;
+create table notes
+(
+    id            int auto_increment
+        primary key,
+    title         varchar(100) not null,
+    content       varchar(300) null,
+    creation_time datetime     not null,
+    username      varchar(50)  null
+);
+
 
 
 
