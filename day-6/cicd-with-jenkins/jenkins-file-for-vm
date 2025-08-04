@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+
+    tools {
+        maven "maven"
+    }
+
+    stages {
+        stage('Source') {
+            steps {
+                git branch: 'main', url: 'https://github.com/ramanujds/spring-boot'
+            }
+        }
+
+        stage('Test'){
+            steps{
+                sh "mvn test"
+            }
+        }
+
+        stage('Build'){
+            steps{
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+
+
+            post {
+
+                success {
+
+                    archiveArtifacts 'target/*.jar'
+                }
+            }
+        }
+        stage('Build Docker Image') {
+                    steps{
+                        sh "docker build -t spring-boot:latest ."
+                    }
+                 }
+
+        stage('Deploy') {
+            steps {
+                sh 'docker stop spring-boot || true'
+                sh 'docker rm spring-boot || true'
+                sh 'docker run -p 5000:5000 --name spring-boot -d --security-opt seccomp=unconfined spring-boot'
+            }
+        }
+    }
+}

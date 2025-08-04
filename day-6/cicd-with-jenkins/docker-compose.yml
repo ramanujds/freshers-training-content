@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  jenkins:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jenkins-docker
+    ports:
+      - "9090:8080"
+      - "50000:50000"
+#    security_opt:
+#      - seccomp:unconfined
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    user: root  # Run container as root so we can install packages and access docker.sock
+
+volumes:
+  jenkins_home:
