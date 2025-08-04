@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      username: admin
+      password: password
+      database: notes_db
+      port: 27017
+      host: localhost
