@@ -1,9 +1,6 @@
 package com.mynotes.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -20,5 +17,10 @@ public class Note {
     private String content;
     @Column(name = "creation_time")
     private LocalDateTime creationTime;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
 
 }
