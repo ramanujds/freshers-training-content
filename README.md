@@ -1,3 +1,8 @@
+
+## Cicd with GitHub Actions
+
+https://medium.com/@ramanujds9/setting-up-ci-cd-for-spring-boot-app-with-github-actions-on-aws-ec2-a1ac6cb96c60
+
 https://medium.com/@ramanujds9/fixing-a-bug-on-production-with-cherry-picking-0e874ab920ff
 
 ## How to Run MongoDB on Docker
